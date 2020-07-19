@@ -1,10 +1,11 @@
 import React from "react";
+import Spinner from "./Component/Spinner";
 
 export class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { lat: null, long: null, errMsg: "" };
+  state = { lat: null, long: null, errMsg: "" };
 
+  // This is Like Pre-Loader
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({
@@ -18,7 +19,11 @@ export class App extends React.Component {
     );
   }
 
-  render() {
+  componentDidUpdate() {
+    console.log("On Every Render Call I will Run");
+  }
+
+  renderComponent() {
     if (!this.state.errMsg && this.state.lat && this.state.long) {
       return (
         <div>
@@ -29,9 +34,13 @@ export class App extends React.Component {
       );
     }
 
-    if (!this.state.lat) {
+    if (!this.state.lat && this.state.errMsg) {
       return <h3>Error : {this.state.errMsg}</h3>;
     }
-    return <h3>Loading</h3>;
+    return <Spinner message="Please Allow Location To View Current Location" />;
+  }
+
+  render() {
+    return <div className="main-window">{this.renderComponent()}</div>;
   }
 }
