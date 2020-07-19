@@ -23,6 +23,7 @@ export class App extends React.Component {
     console.log("On Every Render Call I will Run");
   }
 
+  // Helper Function
   renderComponent() {
     if (!this.state.errMsg && this.state.lat && this.state.long) {
       return (
