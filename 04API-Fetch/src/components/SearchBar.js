@@ -20,6 +20,7 @@ export class SearchBar extends React.Component {
           <form onSubmit={this.onSubmitForm}>
             <input
               onChange={(event) => this.setState({ term: event.target.value })}
+              onKeyUp={this.onSubmitForm}
               className='input-box'
               placeholder='input'
             ></input>

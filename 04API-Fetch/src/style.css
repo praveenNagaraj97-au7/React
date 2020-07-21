@@ -24,14 +24,17 @@
   padding: 1%;
   width: 70vw;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.596) 3px 3px;
   font-family: "Playfair Display", serif;
+}
+
+.input-box:hover {
+  box-shadow: rgba(0, 0, 0, 0.596) 3px 3px;
 }
 
 /* CSS-GRID */
 
 .images-display {
-  padding-top: 70px;
+  padding: 70px 10% 20px 10%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
@@ -40,5 +43,5 @@
 .image-display-each {
   width: 100%;
   justify-self: center;
-  height: 350px;
+  height: 35vh;
 }
