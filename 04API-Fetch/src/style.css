@@ -45,3 +45,15 @@
   justify-self: center;
   height: 35vh;
 }
+
+@media only screen and (max-width: 500px) {
+  .images-display {
+    display: block;
+  }
+
+  .image-display-each {
+    width: 100%;
+    justify-self: center;
+    height: 100%;
+  }
+}
