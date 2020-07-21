@@ -3,6 +3,7 @@ import React from "react";
 import unsplash from "../api/unsplashAPI";
 
 import { SearchBar } from "./SearchBar";
+import { ImageList } from "./ImagesList";
 
 export class App extends React.Component {
   state = { images: [] };
@@ -14,10 +15,10 @@ export class App extends React.Component {
 
   render() {
     return (
-      <SearchBar
-        onSubmitProp={this.onSearchSubmit}
-        images={this.state.images}
-      />
+      <div>
+        <SearchBar onSubmitProp={this.onSearchSubmit} />
+        <ImageList images={this.state.images} />
+      </div>
     );
   }
 }

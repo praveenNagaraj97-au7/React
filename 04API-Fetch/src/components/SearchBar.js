@@ -24,7 +24,6 @@ export class SearchBar extends React.Component {
               placeholder='input'
             ></input>
           </form>
-          <p>Found : {this.props.images.length} images</p>
         </div>
       </div>
     );

@@ -27,3 +27,18 @@
   box-shadow: rgba(0, 0, 0, 0.596) 3px 3px;
   font-family: "Playfair Display", serif;
 }
+
+/* CSS-GRID */
+
+.images-display {
+  padding-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}
+
+.image-display-each {
+  width: 100%;
+  justify-self: center;
+  height: 350px;
+}
