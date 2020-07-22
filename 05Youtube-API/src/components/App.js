@@ -1,11 +1,20 @@
 import React from "react";
 
 import { SearchBar } from "./SearchBar";
-import {} from "../api/youtubeAPI";
+import youtube, { APIKEY } from "../api/youtubeAPI";
 
 export class App extends React.Component {
-  onSubmitFormProp(term) {
-    console.log(term);
+  async onSubmitFormProp(term) {
+    const data = await youtube.get(`/search`, {
+      params: {
+        q: term,
+        type: "video",
+        key: APIKEY,
+        maxResults: 5,
+        part: "snippet",
+      },
+    });
+    console.log(data);
   }
 
   render() {

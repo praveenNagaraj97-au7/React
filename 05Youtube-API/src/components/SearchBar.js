@@ -5,8 +5,8 @@ import "./search.scss";
 export class SearchBar extends React.Component {
   state = { term: "" };
 
-  onSubmitForm = (ev) => {
-    ev.preventDefault();
+  onSubmitForm = (event) => {
+    event.preventDefault();
 
     this.props.onSubmitFormProp(this.state.term);
   };
@@ -23,6 +23,7 @@ export class SearchBar extends React.Component {
                 onChange={(event) =>
                   this.setState({ term: event.target.value })
                 }
+                // onKeyUp={this.onSubmitForm}
                 placeholder="Type Something To Search"
               ></input>
               <button className="submit-btn" type="submit">

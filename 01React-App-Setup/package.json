@@ -27,8 +27,10 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.6",
     "sass": "^1.26.10"
   }
 }
