@@ -54,6 +54,13 @@ export default {
         test: /\.(png|j?g|svg|gif)?$/,
         loader: "file-loader",
       },
+
+      //Source-Map-Loader
+      {
+        test: /\.js$/,
+        enforce: "pre",
+        use: ["source-map-loader"],
+      },
     ],
   },
   plugins: [
