@@ -3,7 +3,7 @@ import React from "react";
 import "./videoDetail.scss";
 
 export const VideoDetail = ({ video }) => {
-  if (!video) return <p>Loading</p>;
+  if (!video) return <p></p>;
 
   return (
     <div className="video-player">

@@ -9,6 +9,10 @@ import youtube, { APIKEY } from "../api/youtubeAPI";
 export class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
+  componentDidMount() {
+    this.onSubmitFormProp("");
+  }
+
   onSubmitFormProp = async (term) => {
     try {
       const response = await youtube.get(`/search`, {
