@@ -29,7 +29,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "prestart": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --mode=none --open"
+    "prestart": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --mode=none --open",
+    "build": "babel-node ./node_modules/webpack/bin/webpack --mode=production"
   },
   "author": "",
   "license": "ISC"
