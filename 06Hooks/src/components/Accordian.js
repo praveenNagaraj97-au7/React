@@ -34,9 +34,9 @@ export const Accordian = () => {
 
     return (
       <React.Fragment key={index}>
-        <div className="accordion" onClick={() => onTitleClick(index)}>
+        <div className='accordion' onClick={() => onTitleClick(index)}>
           {label}
-          <i className="fa fa-plus" aria-hidden="true"></i>
+          <i className='fa fa-plus' aria-hidden='true'></i>
         </div>
         <div className={`accordion-answer ${active}`}>{answer}</div>
       </React.Fragment>
