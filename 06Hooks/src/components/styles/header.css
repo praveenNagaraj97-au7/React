@@ -1,6 +1,11 @@
+* {
+  margin: auto !important;
+  padding: 1% !important;
+}
+
 .navigation {
   margin-bottom: 10px !important;
-  padding: 1%;
+
   background-color: cadetblue;
   border-radius: 20px;
   text-align: center;
