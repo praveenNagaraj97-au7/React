@@ -20,7 +20,7 @@ const data = [
   },
 ];
 
-export const Accordian = () => {
+const Accordian = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const onTitleClick = (index) => {
@@ -45,3 +45,5 @@ export const Accordian = () => {
 
   return <React.Fragment>{questions}</React.Fragment>;
 };
+
+export default Accordian;
