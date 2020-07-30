@@ -1,9 +1,0 @@
-.songs-list {
-  width: 40vw;
-}
-
-@media only screen and (max-width: 600px) {
-  .songs-list {
-    width: 100%;
-  }
-}

@@ -1,12 +1,4 @@
-.songs-display {
+.main-display {
   display: flex;
-  justify-content: space-between;
-  margin: 0 50px;
-  margin-top: 50px;
-}
-
-@media only screen and (max-width: 600px) {
-  .songs-display {
-    display: block;
-  }
+  justify-content: space-around;
 }

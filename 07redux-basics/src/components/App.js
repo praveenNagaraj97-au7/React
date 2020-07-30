@@ -1,16 +1,14 @@
 import React from "react";
+import CarList from "./CarList";
+import CarDetails from "./CarDetails";
 
 import "../styles/app.css";
-import SongList from "./SongList";
-import SongDetail from "./SongDetail";
 
-const App = () => {
+export default () => {
   return (
-    <div className='songs-display'>
-      <SongList />
-      <SongDetail />
+    <div className='main-display'>
+      <CarList />
+      <CarDetails />
     </div>
   );
 };
-
-export default App;
