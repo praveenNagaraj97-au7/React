@@ -1,0 +1,9 @@
+.movie-detail {
+  width: 40vw;
+}
+
+@media screen and (max-width: 600px) {
+  .movie-detail {
+    width: 100%;
+  }
+}
