@@ -10,10 +10,11 @@ import {
   Divider,
 } from "@material-ui/core";
 
-import { fetchPosts } from "../actions";
+import { fetchPostAndUsers } from "../actions";
+import User from "./User";
 
-const PostList = ({ fetchPosts, posts }) => {
-  const fetchedPosts = fetchPosts;
+const PostList = ({ fetchPostAndUsers, posts }) => {
+  const fetchedPosts = fetchPostAndUsers;
 
   useEffect(() => {
     fetchedPosts();
@@ -22,15 +23,18 @@ const PostList = ({ fetchPosts, posts }) => {
   const renderPosts = () => {
     if (posts.length < 1) return <h2>Posts Loading...</h2>;
 
-    const formatedListOfPosts = posts.map(({ id, title, body }) => {
+    const formatedListOfPosts = posts.map(({ id, title, body, userId }) => {
       return (
         <React.Fragment key={id}>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar></Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={title} secondary={body} />
-          </ListItem>
+          <div>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar></Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={title} secondary={body} />
+            </ListItem>
+            <User userId={userId} />
+          </div>
           <Divider variant='inset' component='li' />
         </React.Fragment>
       );
@@ -46,5 +50,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  fetchPosts,
+  fetchPostAndUsers,
 })(PostList);
