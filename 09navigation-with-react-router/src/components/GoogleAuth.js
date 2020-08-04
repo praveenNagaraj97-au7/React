@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 
 const GAuth = (props) => {
   const classes = useStyles();
-
   const auth = useRef();
 
   useEffect(() => {
@@ -32,6 +31,9 @@ const GAuth = (props) => {
           auth.current = window.gapi.auth2.getAuthInstance();
           onAuthChange(auth.current.isSignedIn.get());
           auth.current.isSignedIn.listen(onAuthChange);
+        })
+        .catch((err) => {
+          console.log(err);
         });
     });
   });
@@ -65,7 +67,7 @@ const GAuth = (props) => {
       default:
         return (
           <Button>
-            <Avatar className={classes.orange}>G</Avatar>
+            <Avatar className={classes.orange}>G</Avatar> No Connection
           </Button>
         );
     }
