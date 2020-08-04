@@ -28,7 +28,8 @@ class ImageView extends Component {
     const { images } = this.props;
 
     if (!this.props.searchTerm) return <h1>Type Something To Search</h1>;
-    if (images.length === 0) return <h1>Loading...</h1>;
+    if (images.length === 0)
+      return <h1>Something Went Wrong Try Again Later ...!</h1>;
 
     return (
       <div className={classes.root}>
