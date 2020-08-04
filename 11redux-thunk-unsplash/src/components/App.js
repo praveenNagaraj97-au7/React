@@ -12,7 +12,7 @@ const App = (props) => {
       const timeId = setTimeout(props.fetchImages, 1000, term);
       return () => clearTimeout(timeId);
     }
-  }, [term]);
+  }, [term, props.fetchImages]);
 
   const onChangeSearchTerm = (event) => {
     setTerm(event.target.value);
