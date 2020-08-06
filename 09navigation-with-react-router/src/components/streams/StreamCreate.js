@@ -26,24 +26,26 @@ const StreamCreate = (props) => {
   const onSubmitForm = (formValues) => {
     if (currentUserId)
       return props.createStream({ ...formValues, userId: currentUserId });
-    return alert("Sign In To Create A new Stream");
   };
 
-  return (
-    <Fragment>
-      <form onSubmit={props.handleSubmit(onSubmitForm)}>
-        <label className={classes.label}>Stream Title</label>
-        <Field name='StreamTitle' component={renderInput} />
+  if (props.isSigned)
+    return (
+      <Fragment>
+        <form onSubmit={props.handleSubmit(onSubmitForm)}>
+          <label className={classes.label}>Stream Title</label>
+          <Field name='StreamTitle' component={renderInput} />
 
-        <label className={classes.label}>Stream Description</label>
-        <Field name='StreamDescription' component={renderInput} />
+          <label className={classes.label}>Stream Description</label>
+          <Field name='StreamDescription' component={renderInput} />
 
-        <Button className={classes.sbtBtn} type='submit'>
-          Submit
-        </Button>
-      </form>
-    </Fragment>
-  );
+          <Button className={classes.sbtBtn} type='submit'>
+            Submit
+          </Button>
+        </form>
+      </Fragment>
+    );
+
+  return <h1>Please Login To Create A Stream</h1>;
 };
 
 const reduxFormWrapped = reduxForm({
@@ -53,6 +55,7 @@ const reduxFormWrapped = reduxForm({
 const mapStateToProps = (state) => {
   return {
     gAuth: state.gAuth.userId,
+    isSigned: state.gAuth.isSignedIn,
   };
 };
 

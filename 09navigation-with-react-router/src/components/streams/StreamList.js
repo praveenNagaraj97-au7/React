@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { List, ListItem, ListItemText, makeStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-import { fetchStreams } from "../../actions";
+import { fetchStreams, deleteStream } from "../../actions";
 
 const useStyles = makeStyles((theme) => ({
   linkBtn: {
-    backgroundColor: "blue",
+    backgroundColor: "cadetblue",
     padding: "8px",
     borderRadius: "20px",
     marginRight: "5px",
@@ -43,16 +43,25 @@ const StreamList = (props) => {
     fetchStreams();
   }, [fetchStreams]);
 
-  const editDeleteBtn = (docxId, userId) => {
+  const deleteStreamOnClick = (id) => {
+    props.deleteStream(id);
+    alert("Stream Deleted");
+  };
+
+  const editDeleteBtn = (docxId, userId, id) => {
     if (!docxId) return null;
 
     if (docxId === userId) {
       return (
         <div>
-          <Link className={classes.linkBtn} to='/streams/edit'>
+          <Link className={classes.linkBtn} to={`/streams/edit/${id}`}>
             Edit
           </Link>
-          <Link className={classes.deletelinkBtn} to='/streams/delete'>
+          <Link
+            onClick={() => deleteStreamOnClick(id)}
+            className={classes.deletelinkBtn}
+            to='/'
+          >
             Delete
           </Link>
         </div>
@@ -61,6 +70,8 @@ const StreamList = (props) => {
   };
 
   const renderList = () => {
+    if (props.streams.length === 0) return <h3>No Streams Found</h3>;
+
     return props.streams.map((stream) => {
       return (
         <List key={stream.id}>
@@ -69,7 +80,7 @@ const StreamList = (props) => {
               primary={stream.StreamTitle}
               secondary={stream.StreamDescription}
             />
-            {editDeleteBtn(stream.userId, userId)}
+            {editDeleteBtn(stream.userId, userId, stream.id)}
           </ListItem>
         </List>
       );
@@ -96,4 +107,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   fetchStreams,
+  deleteStream,
 })(StreamList);

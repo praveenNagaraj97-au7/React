@@ -1,5 +1,6 @@
 import { Google_SignIn, Google_SignOut, STREAM } from "./types";
 import streamAPI from "../api";
+import history from "../history";
 
 export const googleAuthSign_In = (details) => {
   return {
@@ -23,6 +24,9 @@ export const createStream = (formValues) => async (dispatch) => {
   const response = await streamAPI.post("/streams", formValues);
 
   dispatch({ type: STREAM.STREAM_CREATE, payload: response.data });
+
+  // Programmatic Navigation
+  history.push("/");
 };
 
 export const fetchStreams = () => async (dispatch) => {
@@ -44,7 +48,7 @@ export const editStream = (id, formValues) => async (dispatch) => {
 };
 
 export const deleteStream = (id) => async (dispatch) => {
-  await streamAPI.put(`/streams${id}`);
+  await streamAPI.delete(`/streams${id}`);
 
   dispatch({ type: STREAM.STREAM_DELETE, payload: id });
 };
