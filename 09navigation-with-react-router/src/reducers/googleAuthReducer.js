@@ -2,8 +2,7 @@ import { Google_SignIn, Google_SignOut } from "../actions/types";
 
 const INITIAL = {
   isSignedIn: null,
-  userId: null,
-  userDetails: {},
+  userId: {},
 };
 
 export default (state = INITIAL, action) => {
@@ -12,15 +11,15 @@ export default (state = INITIAL, action) => {
       return {
         ...state,
         isSignedIn: true,
-        userId: action.payload.details.OU,
-        userDetails: action.payload.details,
+
+        userId: action.payload.details,
       };
     case Google_SignOut:
       return {
         ...state,
         isSignedIn: false,
+
         userId: action.payload.details,
-        userDetails: action.payload.details,
       };
     default:
       return state;

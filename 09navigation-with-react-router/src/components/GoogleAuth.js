@@ -40,7 +40,7 @@ const GAuth = (props) => {
 
   const onAuthChange = (isSigned) => {
     if (isSigned) {
-      props.googleAuthSign_In(auth.current.currentUser.ne.Ot);
+      props.googleAuthSign_In(auth.current.currentUser.ne.Da);
     } else {
       props.googleAuthSign_Out(null, {});
     }
@@ -67,7 +67,7 @@ const GAuth = (props) => {
       default:
         return (
           <Button>
-            <Avatar className={classes.orange}>G</Avatar> No Connection
+            <Avatar className={classes.orange}>G</Avatar>
           </Button>
         );
     }
@@ -82,7 +82,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {
+const mapDispatchToProps = {
   googleAuthSign_In,
   googleAuthSign_Out,
-})(GAuth);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GAuth);

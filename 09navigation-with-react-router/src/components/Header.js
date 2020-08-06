@@ -7,6 +7,7 @@ import GAuth from "./GoogleAuth";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: "3vh",
   },
   title: {
     flexGrow: 1,
