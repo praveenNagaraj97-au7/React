@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Card, CardMedia } from "@material-ui/core";
+import { Card, CardMedia, Button } from "@material-ui/core";
 import { connect } from "react-redux";
 
-import { getphotosAPI } from "../api";
+import { loadImages } from "../actions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,33 +20,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UnsplashImage = () => {
+const UnsplashImage = (props) => {
   const classes = useStyles();
-  const [images, setImages] = useState([]);
 
-  useEffect(() => {
-    getphotosAPI("water")
-      .get()
-      .then((response) => {
-        setImages(response.data.results);
-      });
-  }, []);
+  const {
+    images: { results },
+    nextPage,
+  } = props;
 
   function FormRow() {
     return (
       <React.Fragment>
+        <Button
+          style={{ backgroundColor: "blueviolet" }}
+          onClick={props.loadImages}
+        >
+          {nextPage === 1 ? "Load Images" : "Load More Images"}
+        </Button>
         <div className={classes.root}>
-          {images.map(({ alt_description, id, urls: { regular } }) => {
-            return (
-              <Card key={id} className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image={regular}
-                  title={alt_description}
-                />
-              </Card>
-            );
-          })}
+          {results
+            ? results.map(({ alt_description, id, urls: { regular } }) => {
+                return (
+                  <Card key={id} className={classes.card}>
+                    <CardMedia
+                      className={classes.media}
+                      image={regular}
+                      title={alt_description}
+                    />
+                  </Card>
+                );
+              })
+            : ""}
         </div>
       </React.Fragment>
     );
@@ -55,12 +59,15 @@ const UnsplashImage = () => {
   return <FormRow />;
 };
 
-const mapStateToProps = ({ isLoading, images, error }) => ({
+const mapStateToProps = ({ isLoading, images, error, nextPage }) => ({
   isLoading,
   images,
   error,
+  nextPage,
 });
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = (dispatch) => ({
+  loadImages: () => dispatch(loadImages()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(UnsplashImage);
