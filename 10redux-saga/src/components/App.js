@@ -1,10 +1,9 @@
 import React from "react";
-import Counter from "./Counter";
 
-export default () => {
-  return (
-    <div>
-      <Counter />
-    </div>
-  );
+// import ReciepeList from "./ReciepeList";
+import ImageView from "./ImageView";
+const App = () => {
+  return <ImageView />;
 };
+
+export default App;
