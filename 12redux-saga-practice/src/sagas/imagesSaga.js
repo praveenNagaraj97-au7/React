@@ -12,9 +12,10 @@ const getPage = (state) => state.nextPage;
 function* handleImagesLoad() {
   try {
     const page = yield select(getPage);
-    const images = yield call(getphotosAPI, "India", page);
+    const images = yield call(getphotosAPI, "warrior nun", page);
     yield put(setImages(images));
   } catch (err) {
+    console.log(err);
     yield put(setError(err));
   }
 }

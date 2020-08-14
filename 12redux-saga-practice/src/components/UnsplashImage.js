@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
   media: {
     padding: "25%",
   },
+  Button: {
+    display: "grid",
+    justifyContent: "center",
+  },
 }));
 
 const UnsplashImage = (props) => {
@@ -31,12 +35,14 @@ const UnsplashImage = (props) => {
   function FormRow() {
     return (
       <React.Fragment>
-        <Button
-          style={{ backgroundColor: "blueviolet" }}
-          onClick={props.loadImages}
-        >
-          {nextPage === 1 ? "Load Images" : "Load More Images"}
-        </Button>
+        <div className={classes.Button}>
+          <Button
+            style={{ backgroundColor: "blueviolet", width: "25vw" }}
+            onClick={props.loadImages}
+          >
+            {nextPage === 1 ? "Load Images" : "Load More Images"}
+          </Button>
+        </div>
         <div className={classes.root}>
           {results
             ? results.map(({ alt_description, id, urls: { regular } }) => {
