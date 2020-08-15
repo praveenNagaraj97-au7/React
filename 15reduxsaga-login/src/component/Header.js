@@ -15,7 +15,9 @@ const Header = () => {
           >
             News
           </Typography>
-          <Button color='inherit'>Login</Button>
+          <Link to='/'>
+            <Button color='inherit'>Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </Fragment>
