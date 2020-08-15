@@ -2,8 +2,6 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
 
-import ProductList from "./Product/ProductList";
-
 const Header = () => {
   return (
     <Fragment>
