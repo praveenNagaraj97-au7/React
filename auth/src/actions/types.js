@@ -1,0 +1,11 @@
+export const Google_SignIn = "GAUTH_SIGN_IN";
+
+export const Google_SignOut = "GAUTH_SIGN_OUT";
+
+export const STREAM = {
+  STREAM_CREATE: "STREAM_CREATE",
+  STREAM_EDIT: "STREAM_EDIT",
+  STREAM_LIST: "STREAM_LIST",
+  STREAM_INDIVIDUAL: "STREAM_INDIVIDUAL",
+  STREAM_DELETE: "STREAM_DELETE",
+};

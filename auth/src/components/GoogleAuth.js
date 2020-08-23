@@ -25,20 +25,22 @@ const GAuth = (props) => {
         .init({
           clientId:
             "528082943712-ar5jge8t4459jsdh2ha8qg61vumpng6m.apps.googleusercontent.com",
-          scope: "email profile",
+          scope: "email",
         })
         .then(() => {
           auth.current = window.gapi.auth2.getAuthInstance();
           onAuthChange(auth.current.isSignedIn.get());
           auth.current.isSignedIn.listen(onAuthChange);
         })
-        .catch((err) => {});
+        .catch((err) => {
+          console.log(err);
+        });
     });
   });
 
   const onAuthChange = (isSigned) => {
     if (isSigned) {
-      props.googleAuthSign_In(auth.current.currentUser);
+      props.googleAuthSign_In(auth.current.currentUser.ne.Da);
     } else {
       props.googleAuthSign_Out(null, {});
     }

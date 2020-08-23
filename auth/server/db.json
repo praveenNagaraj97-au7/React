@@ -1,0 +1,22 @@
+{
+  "streams": [
+    {
+      "StreamTitle": "this is my first stream",
+      "StreamDescription": "Test Description",
+
+      "id": 1
+    },
+    {
+      "StreamTitle": "Created By Praveen",
+      "StreamDescription": "Test Description",
+      "userId": "112274764511928713667",
+      "id": 2
+    },
+    {
+      "StreamTitle": "programmatic nav",
+      "StreamDescription": "Hello",
+      "userId": "112274764511928713667",
+      "id": 3
+    }
+  ]
+}

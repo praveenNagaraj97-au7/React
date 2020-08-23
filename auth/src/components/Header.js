@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, AppBar, Toolbar, Typography } from "@material-ui/core";
 
+import { Link } from "react-router-dom";
 import GAuth from "./GoogleAuth";
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +27,9 @@ export default () => {
       <AppBar position='static'>
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
-            AUTH
+            <Link className={classes.titleLink} to='/'>
+              GoogleAuth
+            </Link>
           </Typography>
           <GAuth />
         </Toolbar>
